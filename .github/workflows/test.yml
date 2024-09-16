@@ -1,0 +1,13 @@
+on:
+    workflow_run:
+        workflows:
+            - '**'
+
+name: Pipeline Monitoring
+
+jobs:
+    on-workflow:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo ${{ github.event.workflow_run }}
+  

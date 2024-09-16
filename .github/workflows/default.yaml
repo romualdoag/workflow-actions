@@ -1,0 +1,15 @@
+on:
+    workflow_dispatch:
+        inputs:
+            run_workflow:
+                description: Run the workflow
+                type: boolean
+  
+name: Default Workflow
+  
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    name: Clean runners
+    steps:
+        - run: echo ${{ inputs.run_workflow }}
