@@ -10,6 +10,6 @@ name: Default Workflow
 jobs:
   default:
     runs-on: ubuntu-latest
-    name: Clean runners
+    name: Run Job
     steps:
         - run: echo ${{ inputs.run_workflow }}
