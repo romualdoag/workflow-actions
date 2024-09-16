@@ -2,6 +2,8 @@ on:
     workflow_run:
         workflows:
             - '**'
+        types:
+            - completed
 
 name: Pipeline Monitoring
 
