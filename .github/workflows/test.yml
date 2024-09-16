@@ -29,6 +29,4 @@ jobs:
               https://api.github.com/repos/${{ github.repository }}/actions/jobs/$job_id | jq -r '.steps[] | select(.conclusion=="failure") | "\(.name) step failed with conclusion: \(.conclusion)"'
             done
   
-        - name: Output raw event data
-          run: echo ${{ toJSON(github.event.workflow_run) }}
   

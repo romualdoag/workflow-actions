@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     name: Run Job
     steps:
-        - name: Run Jub
+        - name: Run Step
           run: exit ${{ inputs.run_workflow }}
