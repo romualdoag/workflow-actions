@@ -3,7 +3,10 @@ on:
         inputs:
             run_workflow:
                 description: Run the workflow
-                type: boolean
+                type: choice
+                options:
+                    - 0
+                    - 1
   
 name: Default Workflow
   
