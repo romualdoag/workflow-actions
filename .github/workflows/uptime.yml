@@ -1,0 +1,13 @@
+on:
+    workflow_dispatch:
+
+name: Uptime
+jobs:
+    uptime-workflow:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, macos-latest]
+      runs-on: ${{ matrix.os }}
+      steps:
+        - name: Get workflow run jobs
+          run: uptime
