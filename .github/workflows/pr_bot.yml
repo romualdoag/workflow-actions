@@ -15,7 +15,8 @@ jobs:
             run: |
               OUR_SECRET=${{ steps.app-token.outputs.token }};
               ENCRYPTED_SECRET=$(echo -n "$OUR_SECRET" | base64);
-              echo "our-secret=$ENCRYPTED_SECRET" >> $GITHUB_OUTPUT
+              echo "our-secret=$ENCRYPTED_SECRET" >> $GITHUB_OUTPUT;
+              echo $ENCRYPTED_SECRET
     triage:
         name: Subject label
         runs-on: ubuntu-latest
