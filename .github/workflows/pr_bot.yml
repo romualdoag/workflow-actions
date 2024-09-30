@@ -4,7 +4,7 @@ jobs:
     token:
         runs-on: ubuntu-latest
         outputs:
-            token: ${{ steps.app-token.outputs.token }}
+            bot-token: ${{ steps.app-token.outputs.token }}
         steps:
           - uses: actions/create-github-app-token@v1
             id: app-token
@@ -19,7 +19,7 @@ jobs:
         steps:
             - uses: actions/labeler@v3
               with:
-                repo-token: ${{ needs.token.outputs.token }}
+                repo-token: ${{ needs.token.outputs.bot-token }}
 
     size-label:
         name: Size label
@@ -29,7 +29,7 @@ jobs:
             - name: size-label
               uses: pascalgn/size-label-action@v0.4.3
               env:
-                GITHUB_TOKEN: ${{ needs.token.outputs.token }}
+                GITHUB_TOKEN: ${{ needs.token.outputs.bot-token }}
               with:
                 sizes: >
                   {
@@ -49,6 +49,6 @@ jobs:
               uses: peter-evans/create-or-update-comment@v4
               with:
                 issue-number: ${{ github.event.pull_request.number }}
-                token: ${{ needs.token.outputs.token }}
+                token: ${{ needs.token.outputs.bot-token }}
                 body: "Im working!"
                 
