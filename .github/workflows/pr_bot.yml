@@ -4,7 +4,7 @@ jobs:
     token:
         runs-on: ubuntu-latest
         outputs:
-            bot-token: ${{ steps.token-output.outputs.GITHUB_ENV }}
+            bot-token: ${{ steps.token-output.outputs.bot-token }}
         steps:
           - uses: actions/create-github-app-token@v1
             id: app-token
