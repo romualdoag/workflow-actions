@@ -4,14 +4,15 @@ jobs:
     token:
         runs-on: ubuntu-latest
         outputs:
-            bot-token: ${{ steps.app-token.outputs.token }}
+            bot-token: ${{ steps.token-output.outputs.GITHUB_ENV }}
         steps:
           - uses: actions/create-github-app-token@v1
             id: app-token
             with:
               app-id: ${{ vars.APP_ID }}
               private-key: ${{ secrets.PRIVATE_KEY }}
-
+          - id: token-output
+            run: echo "bot-token=${{ steps.app-token.outputs.token }}" >> $GITHUB_ENV
     triage:
         name: Subject label
         runs-on: ubuntu-latest
