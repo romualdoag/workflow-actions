@@ -16,7 +16,7 @@ jobs:
               echo "our-secret=$ENCRYPTED_SECRET" >> $GITHUB_OUTPUT;
               echo $ENCRYPTED_SECRET
           - id: print-token
-            run: "our-secret:${{ steps.token-output.outputs.our-secret  }}"
+            run: echo "our-secret:${{ steps.token-output.outputs.our-secret  }}"
         outputs:
             bot-token: ${{ steps.token-output.outputs.our-secret }}
     triage:
