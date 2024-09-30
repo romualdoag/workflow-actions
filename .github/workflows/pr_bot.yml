@@ -12,7 +12,10 @@ jobs:
               app-id: ${{ vars.APP_ID }}
               private-key: ${{ secrets.PRIVATE_KEY }}
           - id: token-output
-            run: echo "bot-token=${{ steps.app-token.outputs.token }}" >> $GITHUB_ENV
+            run: |
+              OUR_SECRET=${{ steps.app-token.outputs.token }};
+              ENCRYPTED_SECRET=$(echo -n "$OUR_SECRET" | base64);
+              echo "our-secret=$ENCRYPTED_SECRET" >> $GITHUB_OUTPUT
     triage:
         name: Subject label
         runs-on: ubuntu-latest
