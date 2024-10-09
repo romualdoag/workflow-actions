@@ -16,3 +16,6 @@ jobs:
     steps:
       - name: Teste de Inputs
         run: echo '${{ fromJSON(github) }}'
+        continue-on-error: true
+      - name: Teste de Outputs
+        run: echo "${{ github.event }}"
