@@ -15,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Teste de Inputs
-        run: echo "${{ fromJSON(github) }}"
+        run: echo '${{ fromJSON(github) }}''
