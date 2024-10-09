@@ -1,4 +1,4 @@
-name: Scheduled Run
+name: Daily Build
 
 on:
   schedule:
