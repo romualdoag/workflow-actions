@@ -2,7 +2,7 @@ name: Scheduled Run
 
 on:
   schedule:
-    - cron: '0/15 * * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       test:
@@ -15,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Teste de Inputs
-        run: echo "${{ fromJSON(github.event) }}"
+        run: echo "${{ fromJSON(github) }}"
