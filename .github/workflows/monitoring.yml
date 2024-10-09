@@ -20,7 +20,8 @@ jobs:
             
             # Extracting failed jobs
             failed_jobs=$(jq -r '.jobs[] | select(.conclusion=="failure") | .id' jobs.json)
-            
+            debug=$(jq -r '.jobs[] | select(.conclusion=="failure")' jobs.json)
+            echo "Debug: \n $debug"
             for job_id in $failed_jobs; do
               echo "Job ID: $job_id failed."
               # Fetch steps for the failed job
