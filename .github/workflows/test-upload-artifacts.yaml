@@ -1,0 +1,24 @@
+on:
+  push:
+  
+name: Test Upload Artifacts
+
+env:
+  GLOBAL_BUILD_NUMBER: 1
+  
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    name: Run Job
+    steps:
+      - run: mkdir -p build
+      - run: touch build/a.dSYM.zip
+      - name: Create Local dSYM Encrypted Artifact
+        id: generate-local-dSYM-encrypted
+        run: tar cf - build/*.dSYM.zip | 7z a -si -t7z -mx=6 -mhe=on -p"banana" build/encrypted.dSYM.zip
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4]
+        with:
+          name: Ton-${{ vars.GLOBAL_BUILD_NUMBER+1 }}-dSYM.zip
+          path: build/encrypted.dSYM.zip
