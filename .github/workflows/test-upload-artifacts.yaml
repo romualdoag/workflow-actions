@@ -20,5 +20,5 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4]
         with:
-          name: Ton-${{ env.GLOBAL_BUILD_NUMBER+1 }}-dSYM.zip
+          name: Ton-${{ env.GLOBAL_BUILD_NUMBER }}-dSYM.zip
           path: build/encrypted.dSYM.zip
