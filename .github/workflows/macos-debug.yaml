@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+    inputs:
+      cli:
+        description: Type command does you wanna Run.
+        type: string
+        default: id
+  
+name: Test MacOS (CLI)
+  
+jobs:
+  default:
+    runs-on: macos-latest
+    name: Run Command
+    steps:
+      - run: ${{ inputs.cli }}
