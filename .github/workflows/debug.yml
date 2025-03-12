@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+  
+name: Debug Something
+  
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    name: Run Command
+    steps:
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo $JSON
+        env:
+          JSON: ${{ toJSON(github) }}
