@@ -5,12 +5,16 @@ on:
         description: Type command does you wanna Run.
         type: string
         default: id
+      runner:
+        description: Type of Runner
+        type: string
+        default: macos-15-latest
   
 name: Test MacOS (CLI)
   
 jobs:
   default:
-    runs-on: macos-latest
+    runs-on: ${{ inputs.runner }}
     name: Run Command
     steps:
       - run: ${{ inputs.cli }}
